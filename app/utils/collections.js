@@ -1,19 +1,9 @@
 const mongoose = require('mongoose')
 
-const createCollections = ()=>{
-    const MovieSchema = new mongoose.Schema({
-        title: {
-            type: String,
-            required: true
-        },
-        watched: { 
-            type: Boolean,
-            default: false
-        }
-    })
+// import the model
+const Movies = require('../models/movies-model')
 
-    // create a model from the schema
-    const Movies = mongoose.model("Movies", MovieSchema)
+const createCollections = ()=>{
     try{
         Movies.createCollection()
         console.log("Movies collection created successfully")
